@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vitta Móveis | Móveis Planejados com Entrega Rápida</title>
+    <meta name="description" content="Vitta Móveis - Móveis planejados personalizados com entrega rápida e serviço confiável. Cozinhas, closets e armários sob medida.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #2c1810 0%, #5a3825 100%);
+            color: white;
+            padding: 0.5rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .logo-image {
+            width: 50px;
+            height: 50px;
+            object-fit: contain;
+            border-radius: 4px;
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.2;
+        }
+
+        .logo-text span:first-child {
+            font-size: 1.3rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .logo-text span:last-child {
+            font-size: 0.8rem;
+            opacity: 0.9;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: #d4a574;
+        }
+
+        .whatsapp-top {
+            background: #25D366;
+            color: #fff;
+            padding: 0.4rem 0.9rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .whatsapp-top:hover {
+            background: #1ebe57;
+        }
+
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background: white;
+            margin: 3px 0;
+            transition: 0.3s;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(44, 24, 16, 0.7), rgba(44, 24, 16, 0.7)),
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%235a3825" width="1200" height="600"/><path fill="%234a2f1f" d="M0 300L50 320L100 310L150 330L200 315L250 335L300 320L350 340L400 325L450 345L500 330L550 350L600 335L650 355L700 340L750 360L800 345L850 365L900 350L950 370L1000 355L1050 375L1100 360L1150 380L1200 365V600H0Z"/></svg>') center/cover;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            margin-top: 70px;
+            padding: 0 1.5rem;
+        }
+
+        .hero-content h1 {
+            font-size: 3.2rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero-content p {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+
+        .hero-highlights {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            font-size: 1.05rem;
+        }
+
+        .highlight {
+            background: rgba(212, 165, 116, 0.25);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            border: 1px solid rgba(212,165,116,0.7);
+        }
+
+        .cta-button,
+        .cta-whatsapp {
+            display: inline-block;
+            padding: 0.9rem 2.2rem;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1rem;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin: 0.25rem;
+        }
+
+        .cta-button {
+            background: #d4a574;
+            color: #2c1810;
+            box-shadow: 0 4px 15px rgba(212, 165, 116, 0.4);
+        }
+
+        .cta-button:hover {
+            background: #e6b885;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(212, 165, 116, 0.6);
+        }
+
+        .cta-whatsapp {
+            background: #25D366;
+            color: #fff;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+        }
+
+        .cta-whatsapp:hover {
+            background: #1ebe57;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
+        }
+
+        /* Sections */
+        section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h2 {
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 3rem;
+            color: #2c1810;
+        }
+
+        /* Services */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+            text-align: center;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+        }
+
+        .service-icon {
+            font-size: 2.4rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .service-card h3 {
+            color: #5a3825;
+            margin-bottom: 0.6rem;
+        }
+
+        .badge {
+            background: #d4a574;
+            color: white;
+            padding: 0.25rem 0.7rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            margin-top: 0.8rem;
+            display: inline-block;
+        }
+
+        /* Testimonials */
+        #depoimentos {
+            background: #f8f8f8;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .testimonial-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            text-align: center;
+            position: relative;
+        }
+
+        .testimonial-card::before {
+            content: '"';
+            font-size: 4rem;
+            color: #d4a574;
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .testimonial-card p {
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+
+        .testimonial-author {
+            font-weight: bold;
+            color: #5a3825;
+        }
+
+        /* Gallery */
+        #portfolio {
+            background: #f5f5f5;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .gallery-item {
+            height: 260px;
+            background: #ddd;
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+            font-size: 1rem;
+            padding: 0.8rem;
+            text-align: center;
+        }
+
+        .gallery-item::after {
+            content: 'Ver projeto';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(44, 24, 16, 0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.1rem;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .gallery-item:hover::after {
+            opacity: 1;
+        }
+
+        /* Contact */
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 3rem;
+            align-items: start;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .contact-form input,
+        .contact-form select,
+        .contact-form textarea {
+            padding: 0.9rem;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-family: inherit;
+        }
+
+        .contact-form input:focus,
+        .contact-form select:focus,
+        .contact-form textarea:focus {
+            outline: none;
+            border-color: #d4a574;
+        }
+
+        .contact-form button {
+            padding: 0.9rem;
+            background: #5a3825;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.05rem;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .contact-form button:hover {
+            background: #2c1810;
+        }
+
+        .contact-info {
+            background: #5a3825;
+            color: white;
+            padding: 2rem;
+            border-radius: 10px;
+        }
+
+        .contact-info h3 {
+            margin-bottom: 1.2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.9rem;
+            margin-bottom: 1.2rem;
+            font-size: 0.95rem;
+        }
+
+        .contact-item span {
+            font-size: 1.4rem;
+        }
+
+        .contact-info a {
+            color: #fff;
+            text-decoration: underline;
+        }
+
+        .contact-info a:hover {
+            text-decoration: none;
+        }
+
+        .whatsapp-big {
+            display: inline-block;
+            margin-top: 1rem;
+            background: #25D366;
+            color: #fff;
+            padding: 0.7rem 1.4rem;
+            border-radius: 30px;
+            font-weight: 600;
+            text-decoration: none;
+            font-size: 0.95rem;
+        }
+
+        .whatsapp-big:hover {
+            background: #1ebe57;
+        }
+
+        /* Footer */
+        footer {
+            background: #2c1810;
+            color: white;
+            text-align: center;
+            padding: 1.8rem;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                padding: 0 1rem;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 60px;
+                right: 0;
+                background: #2c1810;
+                flex-direction: column;
+                width: 100%;
+                padding: 1rem 0;
+                gap: 1rem;
+                align-items: center;
+            }
+
+            .menu-toggle {
+                display: flex;
+            }
+
+            .hero-content h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero-content p {
+                font-size: 1.1rem;
+            }
+
+            .hero {
+                padding-top: 1.5rem;
+            }
+
+            section {
+                padding: 3.5rem 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo-area">
+                <!-- Salve sua logo como "logo-vitta.png" na mesma pasta do index.html -->
+                <img src="logo-vitta.png" alt="Logo Vitta Móveis" class="logo-image">
+                <div class="logo-text">
+                    <span>Vitta Móveis</span>
+                    <span>Móveis Planejados</span>
+                </div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home">Início</a></li>
+                <li><a href="#servicos">Serviços</a></li>
+                <li><a href="#portfolio">Portfólio</a></li>
+                <li><a href="#depoimentos">Depoimentos</a></li>
+                <li><a href="#contato">Contato</a></li>
+                <li>
+                    <a class="whatsapp-top" href="https://wa.me/5555984317508?text=Ol%C3%A1%20Vitta%20M%C3%B3veis%2C%20gostaria%20de%20um%20or%C3%A7amento%20de%20m%C3%B3veis%20planejados." target="_blank" rel="noopener noreferrer">
+                        Fale no WhatsApp
+                    </a>
+                </li>
+            </ul>
+            <div class="menu-toggle" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Móveis Planejados com Rapidez e Confiança</h1>
+            <p>Vitta Móveis transforma seu espaço com projetos sob medida, acabamento premium e prazo de entrega reduzido.</p>
+            <div class="hero-highlights">
+                <div class="highlight">Entrega rápida e pontual</div>
+                <div class="highlight">Atendimento personalizado</div>
+                <div class="highlight">Serviço confiável do projeto à instalação</div>
+            </div>
+            <div>
+                <a href="#contato" class="cta-button">Solicitar Orçamento</a>
+                <a href="https://wa.me/5555984317508?text=Ol%C3%A1%20Vitta%20M%C3%B3veis2C%20vi%20o%20site%20e%20quero%20um%20or%C3%A7amento%20de%20m%C3%B3veis%20planejados." 
+                   class="cta-whatsapp" target="_blank" rel="noopener noreferrer">
+                    Chamar no WhatsApp
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="servicos">
+        <h2>O Que a Vitta Móveis Faz por Você</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">🛋️</div>
+                <h3>Cozinhas Planejadas</h3>
+                <p>Projetos completos que aproveitam cada centímetro, com ferragens de qualidade e acabamento de alto padrão.</p>
+                <span class="badge">Entrega rápida</span>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">👗</div>
+                <h3>Closets e Dormitórios</h3>
+                <p>Organização e elegância para o seu quarto, com soluções sob medida para o seu dia a dia.</p>
+                <span class="badge">Medição gratuita</span>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🏠</div>
+                <h3>Sala e Home Office</h3>
+                <p>Painéis, racks, estantes e escritórios planejados para unir conforto, estilo e funcionalidade.</p>
+                <span class="badge">Projeto personalizado</span>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">✅</div>
+                <h3>Processo Confiável</h3>
+                <p>Do primeiro contato à instalação final, você acompanha todas as etapas com transparência e pontualidade.</p>
+                <span class="badge">Atendimento Vitta</span>
+            </div>
+        </div>
+    </section>
+
+    <section id="depoimentos">
+        <h2>Clientes que Confiaram na Vitta Móveis</h2>
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <p>"A cozinha ficou do jeito que eu imaginei. O prazo foi cumprido e a montagem foi muito caprichada."</p>
+                <div class="testimonial-author">- Cliente Vitta</div>
+            </div>
+            <div class="testimonial-card">
+                <p>"Fechamos o closet e os móveis da sala, tudo entregue rápido e com excelente acabamento."</p>
+                <div class="testimonial-author">- Cliente Vitta</div>
+            </div>
+            <div class="testimonial-card">
+                <p>"Serviço sério e confiável. Atendimento pelo WhatsApp sempre rápido e objetivo."</p>
+                <div class="testimonial-author">- Cliente Vitta</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="portfolio">
+        <h2>Alguns Tipos de Projetos</h2>
+        <div class="gallery-grid">
+            <div class="gallery-item">Cozinha planejada em L com torre de fornos e bancada integrada.</div>
+            <div class="gallery-item">Closet com portas de correr espelhadas e divisões internas sob medida.</div>
+            <div class="gallery-item">Painel para TV com rack e nichos iluminados para sala de estar.</div>
+            <div class="gallery-item">Home office compacto com bancada, aéreo e gaveteiro funcional.</div>
+            <div class="gallery-item">Dormitório com guarda-roupa planejado, cabeceira e criados integrados.</div>
+            <div class="gallery-item">Ambiente integrado cozinha/sala com móveis planejados em toda a extensão.</div>
+        </div>
+        <p style="text-align: center; margin-top: 2rem; font-size: 1rem; color: #666;">
+            Depois você pode substituir estes blocos por fotos reais dos seus projetos.
+        </p>
+    </section>
+
+    <section id="contato">
+        <h2>Peça Seu Orçamento com a Vitta Móveis</h2>
+        <div class="contact-container">
+            <form class="contact-form" id="contactForm">
+                <input type="text" name="nome" placeholder="Seu nome" required>
+                <input type="email" name="email" placeholder="Seu e-mail" required>
+                <input type="tel" name="telefone" placeholder="Seu telefone / WhatsApp" required>
+                <select name="tipo" required>
+                    <option value="">Tipo de ambiente</option>
+                    <option value="cozinha">Cozinha planejada</option>
+                    <option value="closet">Closet / dormitório</option>
+                    <option value="sala">Sala / home office</option>
+                    <option value="outro">Outro ambiente</option>
+                </select>
+                <input type="text" name="prazo" placeholder="Prazo desejado (ex: em 30 dias)">
+                <textarea name="descricao" rows="5" placeholder="Descreva seu projeto: medidas aproximadas, estilo, cores que gosta..." required></textarea>
+                <button type="submit">Enviar dados pelo WhatsApp</button>
+            </form>
+            <div class="contact-info">
+                <h3>Fale Diretamente com a Vitta Móveis</h3>
+                <div class="contact-item">
+                    <span>📱</span>
+                    <div>
+                        <strong>WhatsApp</strong><br>
+                        <a href="https://wa.me/5555984317508?text=Ol%C3%A1%20Vitta%20M%C3%B3veis%2C%20gostaria%20de%20um%20or%C3%A7amento%20de%20m%C3%B3veis%20planejados." target="_blank" rel="noopener noreferrer">
+                            +55 55 98431-7508
+                        </a>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <span>⏱️</span>
+                    <div>
+                        <strong>Atendimento rápido</strong><br>
+                        Resposta em até poucas horas pelo WhatsApp.
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <span>🛠️</span>
+                    <div>
+                        <strong>Projeto + Fabricação + Instalação</strong><br>
+                        Tudo com a mesma equipe, garantindo qualidade de ponta a ponta.
+                    </div>
+                </div>
+
+                <a class="whatsapp-big" href="https://wa.me/5555984317508?text=Ol%C3%A1%20Vitta%20M%C3%B3veis%2C%20quero%20come%C3%A7ar%20um%20projeto%20de%20m%C3%B3veis%20planejados." target="_blank" rel="noopener noreferrer">
+                    Chamar agora no WhatsApp
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Vitta Móveis. Móveis planejados com entrega rápida e serviço confiável.</p>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const navLinks = document.querySelector('.nav-links');
+            if (navLinks.style.display === 'flex') {
+                navLinks.style.display = 'none';
+            } else {
+                navLinks.style.display = 'flex';
+                navLinks.style.flexDirection = 'column';
+            }
+        }
+
+        // Scroll suave
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                if (href.startsWith('#')) {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                    if (window.innerWidth <= 768) {
+                        document.querySelector('.nav-links').style.display = 'none';
+                    }
+                }
+            });
+        });
+
+        // Formulário -> abrir WhatsApp com mensagem preenchida
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const data = new FormData(this);
+            const nome = data.get('nome') || '';
+            const email = data.get('email') || '';
+            const telefone = data.get('telefone') || '';
+            const tipo = data.get('tipo') || '';
+            const prazo = data.get('prazo') || '';
+            const descricao = data.get('descricao') || '';
+
+            const msg = 
+`Olá Vitta Móveis, gostaria de um orçamento de móveis planejados.
+
+Nome: ${nome}
+Telefone: ${telefone}
+E-mail: ${email}
+Tipo de ambiente: ${tipo}
+Prazo desejado: ${prazo}
+
+Descrição do projeto:
+${descricao}`;
+
+            const url = 'https://wa.me/5555984317508?text=' + encodeURIComponent(msg);
+            window.open(url, '_blank');
+        });
+    </script>
+</body>
+</html>
